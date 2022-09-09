@@ -4,6 +4,7 @@ import com.prodigypnp.conversion.Player
 import com.prodigypnp.conversion.convLog
 import com.prodigypnp.libs.Fills
 
+
 fun Lines (script: String) : String {
 
     /** Dependency fills */
@@ -34,9 +35,11 @@ fun Lines (script: String) : String {
 
 
     return """
+        
         (()=>{
-            ${fills.getAll()};
-            ${output.joinToString("")}
+            ${fills.getAll() /* Add fills */};
+            ${output.joinToString("") /* Add hack script */}
         })();
+        
         """.trimIndent().replace("\n", "")
 }
