@@ -2,7 +2,10 @@ package com.prodigypnp.conversion
 
 import com.prodigypnp.func.match
 
-fun convPlayer (code : String) {
+fun convPlayer (code : String) : String {
+    if (code.match("me.gold") !== "") return Player.gold(code)
+
+    return Player.fallback(code)
 }
 
 

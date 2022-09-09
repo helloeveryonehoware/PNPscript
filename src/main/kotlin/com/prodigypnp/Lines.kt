@@ -2,6 +2,7 @@ package com.prodigypnp
 
 import com.prodigypnp.conversion.Player
 import com.prodigypnp.conversion.convLog
+import com.prodigypnp.conversion.convPlayer
 import com.prodigypnp.libs.Fills
 
 
@@ -25,10 +26,7 @@ fun Lines (script: String) : String {
             continue
         }
 
-        if (line.contains("me.")) {
-            output.add(Player.gold(line))
-            continue
-        }
+        output.add(convPlayer(line))
 
     }
 
