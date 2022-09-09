@@ -16,7 +16,7 @@ fun convLog (code: String, Fills : Fills) : String {
         pnpscript.fills.Toast.fire({
             title: `$title`,
             html: `$html`,
-            icon: `$icon`,
+            icon: `${if (icon == "info" || icon == "success" || icon == "warning" || icon == "question" || icon == "error") icon else ""}`,
         });
     """.trimIndent()
 }
