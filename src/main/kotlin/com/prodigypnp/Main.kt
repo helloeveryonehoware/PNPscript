@@ -1,7 +1,11 @@
 package com.prodigypnp
 
-import com.prodigypnp.libs.fills
+import java.awt.Toolkit
+import java.awt.datatransfer.Clipboard
+import java.awt.datatransfer.StringSelection
 import java.io.FileReader
+import kotlin.system.exitProcess
+
 
 fun main(args: Array<String>) : Unit {
 
@@ -10,8 +14,15 @@ fun main(args: Array<String>) : Unit {
         println("EXAMPLE: java -jar ./build/PNPscript.jar --file ./examples/gold.pnps")
         return
     }
-
     val file = FileReader(args[args.indexOf("--file") + 1]).readText()
-    println(Lines(file))
 
+    val result = Lines(file)
+    println(result)
+
+    if (args.contains("-c") || args.contains("--copy")) {
+        Toolkit.getDefaultToolkit().systemClipboard.setContents(StringSelection(result), null)
+    }
+
+    println("\n[FINISHED] Finished building PNPscript")
+    exitProcess(0)
 }

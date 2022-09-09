@@ -11,12 +11,12 @@ object Player {
 
     fun gold (code : String) : String {
         val match = code.match("me.gold")
-        return code.replace(match, "_.player.data.gold")
+        return code.replace(match, "_.player.data.gold") + ";"
     }
 
     fun fallback (code : String) : String {
         val match = code.match("me.")
-        return code.replace(match, "_.player.")
+        return code.replace(match, "_.player.") + ";"
     }
 
 }

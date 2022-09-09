@@ -1,6 +1,7 @@
 package com.prodigypnp.libs
 
-class fills (val Toast : Boolean = false) {
+class Fills (var Toast : Boolean = false) {
+
 
 
     fun getAll () : String {
