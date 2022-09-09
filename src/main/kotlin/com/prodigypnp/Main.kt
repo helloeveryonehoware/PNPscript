@@ -21,6 +21,7 @@ fun main(args: Array<String>) : Unit {
 
     if (args.contains("-c") || args.contains("--copy")) {
         Toolkit.getDefaultToolkit().systemClipboard.setContents(StringSelection(result), null)
+        println("\n[FINISHED] Copied finished JS to clipboard")
     }
 
     println("\n[FINISHED] Finished building PNPscript")
