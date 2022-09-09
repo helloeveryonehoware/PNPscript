@@ -13,7 +13,7 @@ fun convLog (code: String, Fills : Fills) : String {
     val icon = if (split.size > 3) split[3] else ""
 
     return """
-        Toast.fire({
+        pnpscript.fills.Toast.fire({
             title: `$title`,
             html: `$html`,
             icon: `$icon`,

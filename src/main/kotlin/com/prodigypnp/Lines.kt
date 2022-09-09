@@ -16,6 +16,7 @@ fun Lines (script: String) : String {
     val output : ArrayList<String> = ArrayList()
 
 
+
     for (line in all) {
 
         if (line.startsWith("~")) {
@@ -30,5 +31,12 @@ fun Lines (script: String) : String {
 
     }
 
-    return fills.getAll() + output.joinToString("")
+
+
+    return """
+        (()=>{
+            ${fills.getAll()};
+            ${output.joinToString("")}
+        })();
+        """.trimIndent().replace("\n", "")
 }
