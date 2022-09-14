@@ -2,6 +2,10 @@ package com.prodigypnp.conversion
 
 import com.prodigypnp.libs.Fills
 
+fun convComment (code : String) : String {
+    return "console.log(\"${code.replaceFirst("#", "")}\");"
+}
+
 fun convLog (code: String, Fills : Fills) : String {
 
     Fills.Toast = true;

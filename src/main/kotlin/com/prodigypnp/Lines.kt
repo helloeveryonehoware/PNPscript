@@ -1,5 +1,6 @@
 package com.prodigypnp
 
+import com.prodigypnp.conversion.convComment
 import com.prodigypnp.conversion.convLog
 import com.prodigypnp.conversion.convPlayer
 import com.prodigypnp.libs.Fills
@@ -22,8 +23,9 @@ fun Lines (script: String) : String {
 
         if (line.startsWith("~")) {
             output.add(convLog(line, fills)); continue
-        }
-        else if (line.startsWith("@js")) {
+        } else if (line.startsWith("#")) {
+            output.add(convComment(line))
+        } else if (line.startsWith("@js")) {
             output.add(line.replace("@js", "") + ";"); continue
         }
         else if (line.contains("me.")) {
