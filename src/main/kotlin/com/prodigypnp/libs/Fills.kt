@@ -8,6 +8,7 @@ class Fills (var Toast : Boolean = false) {
         var output : String = ""
 
         output+= "window.pnpscript={};"
+        output += "window.pnpscript.variables={};"
         output+= "window.pnpscript.fills={};"
         if (Toast) output+= static.Toast
 
