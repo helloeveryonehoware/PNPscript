@@ -2,6 +2,7 @@ package com.prodigypnp
 
 import com.prodigypnp.conversion.convComment
 import com.prodigypnp.conversion.convLog
+import com.prodigypnp.conversion.convToast
 import com.prodigypnp.conversion.convPlayer
 import com.prodigypnp.libs.Fills
 
@@ -22,15 +23,21 @@ fun Lines (script: String) : String {
     for (line in all) {
 
         if (line.startsWith("~")) {
-            output.add(convLog(line, fills)); continue
-        } else if (line.startsWith("#")) {
-            output.add(convComment(line))
-        } else if (line.startsWith("@js")) {
+            output.add(convToast(line, fills)); continue
+        }
+        else if (line.startsWith("#")) {
+            output.add(convComment(line)); continue
+        }
+        else if (line.startsWith("@js")) {
             output.add(line.replace("@js", "") + ";"); continue
+        }
+        else if (line.startsWith("log ") || line.startsWith("warn ") || line.startsWith("error ")) {
+            output.add(convLog(line)); continue
         }
         else if (line.contains("me.")) {
             output.add(convPlayer(line)); continue
         }
+
 
     }
 

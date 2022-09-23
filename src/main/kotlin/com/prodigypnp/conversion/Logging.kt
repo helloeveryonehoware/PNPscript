@@ -2,11 +2,18 @@ package com.prodigypnp.conversion
 
 import com.prodigypnp.libs.Fills
 
+fun convLog (code : String) : String {
+
+    val action = code.substringBefore(" ") // This is "log", "warn", or "error"
+
+    return "console.$action(\"\");"
+}
+
 fun convComment (code : String) : String {
     return "console.log(\"${code.replaceFirst("#", "")}\");"
 }
 
-fun convLog (code: String, Fills : Fills) : String {
+fun convToast (code: String, Fills : Fills) : String {
 
     Fills.Toast = true;
 
